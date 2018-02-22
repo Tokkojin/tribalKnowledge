@@ -33,18 +33,6 @@ $(function() {
     'preview' : 0
   };
 
-  $('#highlight').on('click', function(){
-
-    var text = "";
-    if (window.getSelection) {
-        text = window.getSelection().toString();
-    } else if (document.selection && document.selection.type != "Control") {
-        text = document.selection.createRange().text;
-    }
-
-    alert(text);       
-  });
-
   var isEdited = false;
 
   $('#body').val(example);
