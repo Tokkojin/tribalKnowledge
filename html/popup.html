@@ -15,7 +15,10 @@
             font-weight: bold; width: auto;
         }
     </style>
-    <script type="text/javascript" src="../js/popup.js"></script>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/popup.js"></script>
+    <script src="../js/markdown.js"></script>
 </head>
 <body>
     <form id="addRemark">
@@ -24,10 +27,14 @@
             <input type="text" id="title" name="title" size="50" value="" />
         </p>
         <p>
-            <label for="body">Body</label><br />
+            <label for="body">Body</label>
             <textarea id="body" name="body" rows="6" cols="35">
             </textarea>
         </p>
+        <div id="preview" class="mode">
+          <div id="output" class="content markdown-body">
+          </div>
+        </div>
         <p>
             <label for="tags">Tags</label><br />
             <input type="text" id="tags" name="tags" size="50" value="" />
