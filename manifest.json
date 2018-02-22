@@ -1,7 +1,7 @@
 {
     //manifest spec: http://developer.chrome.com/extensions/manifest.html
     //required
-    "name": "Chrome Extension Template",
+    "name": "TribalKnowledge",
     "version": "1.0",
     "manifest_version": 2,
 
@@ -20,7 +20,7 @@
             "19": "images/icon_19.png",
             "38": "images/icon_38.png"
         },
-        "default_popup": "html/main.html"
+        "default_popup": "html/popup.html"
     },
 
     //additional

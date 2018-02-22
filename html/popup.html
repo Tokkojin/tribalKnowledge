@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            min-width: 420px;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+        input, textarea {
+            width: 420px;
+        }
+        input#save {
+            font-weight: bold; width: auto;
+        }
+    </style>
+    <script type="text/javascript" src="../js/popup.js"></script>
+</head>
+<body>
+    <form id="addRemark">
+        <p>
+            <label for="title">Title</label><br />
+            <input type="text" id="title" name="title" size="50" value="" />
+        </p>
+        <p>
+            <label for="body">Body</label><br />
+            <textarea id="body" name="body" rows="6" cols="35">
+            </textarea>
+        </p>
+        <p>
+            <label for="tags">Tags</label><br />
+            <input type="text" id="tags" name="tags" size="50" value="" />
+        </p>
+        <p>
+            <input id="save" type="submit" value="Save Remark" />
+            <span id="status-display"></span>
+        </p>
+    </form>
+</body>
+</html>
