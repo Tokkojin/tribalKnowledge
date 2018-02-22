@@ -3,6 +3,7 @@
 <head>
     <style>
         body {
+            margin: 25px;
             min-width: 420px;
             overflow-x: hidden;
             font-family: Arial, sans-serif;
@@ -14,6 +15,13 @@
         input#save {
             font-weight: bold; width: auto;
         }
+        input#clear {
+            font-weight: bold; width: auto;
+        }
+        #preview {
+            border-width: thin;
+            background-color: #dadada;
+        }
     </style>
     <script src="../js/jquery-1.9.1.js"></script>
     <script src="../js/main.js"></script>
@@ -23,17 +31,20 @@
     <form id="addRemark">
         <p>
             <label for="highlight">Highlighted Text</label><br />
-            <div id = "highlight" name = "highlight" size = "50" value = ""/>
-            <input type="text" id="highlight" name="highlight" size="50" value="" />
+            <div id = "highlight" name = "highlight" size = "45" value = ""/>
+            <input type="text" id="highlight" name="highlight" size="45" value="" />
         </p>
         <p>
-            <label for="body">*Body</label>
+            <label for="body">*Body</label><br /><br />
             <textarea id="body" name="body" rows="6" cols="35">
             </textarea>
         </p>
-        <div id="preview" class="mode">
-          <div id="output" class="content markdown-body">
-          </div>
+        <p>
+            <input id="clear" type="submit" value="Clear" />
+        </p>
+        <br />
+        <div id="preview" class="mode" style="border:1px solid black;">
+          <div id="output" class="content markdown-body"></div>
         </div>
         <p>
             <input id="save" type="submit" value="Save Remark" />

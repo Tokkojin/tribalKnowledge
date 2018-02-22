@@ -27,7 +27,7 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 function onClickHandler(info, tab) {
   var formUrl = "../html/popup.html";
   var highlight = info.selectionText;
-  var w = (screen.width/4);
+  var w = (screen.width/3);
   var h = (screen.width/3);
   var left = (screen.width/2)-(w/2);
   var top = (screen.height/2)-(h/2);   
