@@ -6,9 +6,9 @@ RUN mkdir -p $GOPATH/src/github.com/narrative/backend
 WORKDIR $GOPATH/src/github.com/narrative/backend
 
 # this will cache the npm install step, unless package.json changes
-ADD package.json .
-ADD yarn.lock .
-RUN yarn install --no-progress
+# ADD package.json .
+# ADD yarn.lock .
+# RUN yarn install --no-progress
 ADD . .
 RUN go get $(go list ./... | grep -v /vendor/)
 RUN buffalo build --static -o /bin/app

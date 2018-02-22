@@ -1,0 +1,6 @@
+- id: "search.created.success"
+  translation: "Search was successfully created."
+- id: "search.updated.success"
+  translation: "Search was successfully updated."
+- id: "search.destroyed.success"
+  translation: "Search was successfully destroyed."

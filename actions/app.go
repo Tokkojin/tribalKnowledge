@@ -1,10 +1,14 @@
 package actions
 
 import (
+	"fmt"
+
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/buffalo/middleware"
 	"github.com/gobuffalo/buffalo/middleware/ssl"
 	"github.com/gobuffalo/envy"
+	"github.com/markbates/pop"
+	"github.com/pkg/errors"
 	"github.com/unrolled/secure"
 
 	"github.com/gobuffalo/x/sessions"
@@ -46,6 +50,30 @@ func App() *buffalo.App {
 
 		app.GET("/", HomeHandler)
 
+		app.Resource("/comments", CommentsResource{})
+
+		app.GET("/search", func(c buffalo.Context) error {
+
+			tx, ok := c.Value("tx").(*pop.Connection)
+			if !ok {
+				return errors.WithStack(errors.New("no transaction found"))
+			}
+
+			search := &models.Search{}
+			c.Bind(&search)
+
+			comments := &models.Comments{}
+			fmt.Println(search.Url)
+			q := tx.Where(fmt.Sprintf("url='%s'", search.Url))
+
+			// Retrieve all Comments from the DB
+			if err := q.All(comments); err != nil {
+				return errors.WithStack(err)
+			}
+
+			return c.Render(200, r.JSON(comments))
+
+		})
 	}
 
 	return app
