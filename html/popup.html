@@ -23,8 +23,9 @@
 <body>
     <form id="addRemark">
         <p>
-            <label for="title"><i>Title</i></label><br />
-            <input type="text" id="title" name="title" size="50" value="" />
+            <label for="highlight">Highlighted Text</label><br />
+            <div id = "highlight" name = "highlight" size = "50" value = ""/>
+            <input type="text" id="highlight" name="highlight" size="50" value="" />
         </p>
         <p>
             <label for="body">*Body</label>
@@ -35,10 +36,6 @@
           <div id="output" class="content markdown-body">
           </div>
         </div>
-        <p>
-            <label for="tags"><i>Tags</i></label><br />
-            <input type="text" id="tags" name="tags" size="50" value="" />
-        </p>
         <p>
             <input id="save" type="submit" value="Save Remark" />
             <span id="status-display"></span>

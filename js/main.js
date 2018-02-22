@@ -33,6 +33,18 @@ $(function() {
     'preview' : 0
   };
 
+  $('#highlight').on('click', function(){
+
+    var text = "";
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    } else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
+    }
+
+    alert(text);       
+  });
+
   var isEdited = false;
 
   $('#body').val(example);
@@ -62,11 +74,13 @@ $(function() {
   });
 });
 
+
+
 window.addEventListener('load', function(evt) {
     // Cache a reference to the status display SPAN
     statusDisplay = document.getElementById('status-display');
     // Handle the bookmark form submit event with our addBookmark function
-    document.getElementById('addbookmark').addEventListener('submit', addBookmark);
+    document.getElementById('addRemark').addEventListener('submit', addRemark);
     // Get the event page
     chrome.runtime.getBackgroundPage(function(eventPage) {
         // Call the getPageInfo function in the event page, passing in 

@@ -1,12 +1,21 @@
 {
     //manifest spec: http://developer.chrome.com/extensions/manifest.html
     //required
-    "name": "TribalKnowledge",
-    "version": "1.0",
+    "name": "Tribal Knowledge",
+    "version": "0.01",
     "manifest_version": 2,
+    "permissions": [
+        "contextMenus"
+    ],
+
+    "background": {
+        "persistent": false,
+        "scripts": ["js/background.js"]
+    },
 
     //recommended
-    "description": "Chrome extension description written here.",
+    "description": "Code documentation made simple.",
+
     "icons": {
         "19": "images/icon_19.png",
         "38": "images/icon_38.png",
