@@ -23,11 +23,11 @@
 <body>
     <form id="addRemark">
         <p>
-            <label for="title">Title</label><br />
+            <label for="title"><i>Title</i></label><br />
             <input type="text" id="title" name="title" size="50" value="" />
         </p>
         <p>
-            <label for="body">Body</label>
+            <label for="body">*Body</label>
             <textarea id="body" name="body" rows="6" cols="35">
             </textarea>
         </p>
@@ -36,13 +36,14 @@
           </div>
         </div>
         <p>
-            <label for="tags">Tags</label><br />
+            <label for="tags"><i>Tags</i></label><br />
             <input type="text" id="tags" name="tags" size="50" value="" />
         </p>
         <p>
             <input id="save" type="submit" value="Save Remark" />
             <span id="status-display"></span>
         </p>
+        *Required 
     </form>
 </body>
 </html>
