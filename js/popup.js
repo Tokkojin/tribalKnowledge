@@ -1,5 +1,6 @@
 // This callback function is called when the content script has been 
 // injected and returned its results
+//TK:9ff1d963-29f1-4234-bed1-ffb737389ff2
 function onPageDetailsReceived(pageDetails)  { 
     document.getElementById('highlight').value = pageDetails.highlight; 
     document.getElementById('url').value = pageDetails.url; 
@@ -9,6 +10,7 @@ function onPageDetailsReceived(pageDetails)  {
 // Global reference to the status display SPAN
 var statusDisplay = null;
 
+//TK:aed877a7-502d-4681-95d3-3318215fa0a4
 // POST the data to the server using XMLHttpRequest
 function addBookmark() {
     // Cancel the form submit
