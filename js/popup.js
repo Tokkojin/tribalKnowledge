@@ -1,5 +1,6 @@
 // This callback function is called when the content script has been 
 // injected and returned its results
+//TK:9ff1d963-29f1-4234-bed1-ffb737389ff2
 function onPageDetailsReceived(pageDetails)  { 
     document.getElementById('highlight').value = pageDetails.highlight; 
     document.getElementById('url').value = pageDetails.url; 
