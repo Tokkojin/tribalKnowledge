@@ -74,6 +74,10 @@ window.addEventListener('load', function (evt) {
   document.getElementById('addRemark').addEventListener('submit', addRemark);
   // Get the event page
 
+  document.getElementById("clear").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("body").value = "";
+  })
 
   const realFileBtn = document.getElementById("real-file")
   const customBtn = document.getElementById("custom-button")
