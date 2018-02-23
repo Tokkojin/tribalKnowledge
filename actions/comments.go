@@ -78,7 +78,6 @@ func (v CommentsResource) New(c buffalo.Context) error {
 // Create adds a Comment to the DB. This function is mapped to the
 // path POST /comments
 func (v CommentsResource) Create(c buffalo.Context) error {
-
 	// Allocate an empty Comment
 	comment := &models.Comment{}
 
