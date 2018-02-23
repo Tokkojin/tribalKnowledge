@@ -3,35 +3,32 @@
     "version": "1.0",
     "manifest_version": 2,
     "permissions": [
-        "contextMenus"
+        "contextMenus",
+        "tabs",
+        "<all_urls>"
     ],
-
     "background": {
         "persistent": false,
-        "scripts": ["js/background.js"]
+        "scripts": [
+            "js/background.js"
+        ]
     },
-
     "description": "Code documentation made simple.",
-
     "icons": {
         "16": "images/icon_16.png",
         "24": "images/icon_24.png",
         "32": "images/icon_32.png",
         "128": "images/icon_128.png"
-
     },
-
     "browser_action": {
-    "default_title": "Tribal Knowledge",
-    "default_icon": {
-        "16": "images/icon_16.png",
-        "24": "images/icon_24.png",
-        "32": "images/icon_32.png",
-        "128": "images/icon_128.png"
+        "default_title": "Tribal Knowledge",
+        "default_icon": {
+            "16": "images/icon_16.png",
+            "24": "images/icon_24.png",
+            "32": "images/icon_32.png",
+            "128": "images/icon_128.png"
+        },
+        "default_popup": "html/popup.html"
     },
-
-    "default_popup": "html/popup.html"
-    },
-
     "homepage_url": "https://github.com/Tokkojin/tribalKnowledge"
 }

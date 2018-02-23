@@ -1,25 +1,3 @@
-var example = [
-  "## usage",
-  "1. Write markdown text in this textarea.",
-  "2. Click 'HTML Preview' button.",
-  "",
-  "----",
-  "## markdown quick reference",
-  "# headers",
-  "",
-  "*emphasis*",
-  "",
-  "**strong**",
-  "",
-  "* list",
-  "",
-  ">block quote",
-  "",
-  "    code (4 spaces indent)",
-  "[links](http://wikipedia.org)",
-  "",
-  ""
-].join("\n");
 
 $(function () {
   var currentMode = 'edit';
@@ -35,8 +13,8 @@ $(function () {
 
   var isEdited = false;
 
-  $('#body').val(example);
-  $('#output').html(markdown.toHTML(example));
+  $('#body').val("");
+  $('#output').html("");
   $('#body').bind('keyup', function () {
     isEdited = true;
     $('#output').html(markdown.toHTML($('#body').val()));
@@ -65,6 +43,44 @@ $(function () {
   });
 });
 
+chrome.runtime.onMessage.addListener(function (request, sender) {
+  if (request.action == "getSource") {
+
+    var pageSource = request.source
+
+    var re = /\s*TK:(.*)<\/span>\s*/g;
+    var m;
+
+    var availableComments = []
+
+    do {
+      m = re.exec(pageSource);
+      if (m) {
+        availableComments.push(m[1]);
+      }
+    } while (m);
+
+    availableComments.forEach(function (commentId) {
+      var settings = {
+        "crossDomain": true,
+        "url": "https://trblknwldge.herokuapp.com/comments/" + commentId,
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
+        },
+      }
+
+      $.ajax(settings).done(function (response) {
+
+        document.getElementById('existing-comments-title').hidden = false;
+        $('#existing-comments').append(
+          '<li><div>' + markdown.toHTML(response.comment) + '</div></li>'
+        )
+      });
+    })
+  }
+});
 
 
 window.addEventListener('load', function (evt) {
@@ -104,6 +120,20 @@ window.addEventListener('load', function (evt) {
       document.getElementById("comment-link").value = '//TK:' + response.id
     });
   })
+
+
+  var message = document.querySelector('#message');
+
+  chrome.tabs.executeScript(null, {
+    file: "js/getPagesSource.js"
+  }, function () {
+    // If you try and inject into an extensions page or the webstore/NTP you'll get an error
+    if (chrome.runtime.lastError) {
+      console.log('There was an error injecting script : \n' + chrome.runtime.lastError.message);
+    }
+  });
+
+
 
 });
 
