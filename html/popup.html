@@ -37,33 +37,20 @@
 </head>
 
 <body>
-    <form id="addRemark">
-        <p>
-            <label for="highlight">Highlighted Text</label>
-            <br />
-            <div id="highlight" name="highlight" size="45" value="" />
-            <input type="text" id="highlight" name="highlight" size="45" value="" />
-        </p>
-        <div>
-            <label for="body">Body *</label>
-            <textarea id="body" name="body" rows="6" cols="35"></textarea>
-        </div>
-        <div>
-            <input id="clear" type="submit" value="Clear" />
-        </div>
-        <br />
+    <div>
+        <form id="addRemark">
+            <div>
+                <label for="body">Comment</label>
+                <textarea id="body" name="body" rows="6" cols="35"></textarea>
+                <button id="clear" value="Clear">Clear</button>
+                <button id="save" value="Save Remark">Save</button>
+                <span id="status-display"></span>
+            </div>
+        </form>
         <div id="preview" class="mode" style="border:1px solid black;">
             <div id="output" class="content markdown-body"></div>
         </div>
-        <input type="file" id="real-file" hidden="hidden" />
-        <button type="button" id="custom-button">CHOOSE A FILE</button>
-        <span id="custom-text">No file chosen, yet.</span>
-        <p>
-            <input id="save" type="submit" value="Save Remark" />
-            <span id="status-display"></span>
-        </p>
-        *Required
-    </form>
+    </div>
 </body>
 
 </html>

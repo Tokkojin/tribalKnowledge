@@ -79,21 +79,28 @@ window.addEventListener('load', function (evt) {
     document.getElementById("body").value = "";
   })
 
-  const realFileBtn = document.getElementById("real-file")
-  const customBtn = document.getElementById("custom-button")
-  const customTxt = document.getElementById("custom-text")
+  document.getElementById("save").addEventListener("click", function (e) {
 
-  customBtn.addEventListener("click", function () {
-    realFileBtn.click();
-  });
+    e.preventDefault();
 
-  realFileBtn.addEventListener("change", function () {
-    if (realFileBtn.value) {
-      customTxt.innerHTML = realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+    data = {
+      "Comment": document.getElementById('body').value
     }
-    else {
-      customTxt.innerHTML = "No file chosen, yet."
+
+    var settings = {
+      "crossDomain": true,
+      "url": "https://trblknwldge.herokuapp.com/comments",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+      },
+      "data": JSON.stringify(data)
     }
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
   })
 
 });
