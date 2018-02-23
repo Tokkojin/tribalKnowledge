@@ -21,7 +21,7 @@ var example = [
   ""
 ].join("\n");
 
-$(function() {
+$(function () {
   var currentMode = 'edit';
   var body = $('#body');
   var header = $('#header');
@@ -29,36 +29,36 @@ $(function() {
   var titleHeight = $('#header h1').outerHeight();
   var fixedTop = -titleHeight;
   var scrollTops = {
-    'edit' : 0,
-    'preview' : 0
+    'edit': 0,
+    'preview': 0
   };
 
   var isEdited = false;
 
   $('#body').val(example);
   $('#output').html(markdown.toHTML(example));
-  $('#body').bind('keyup', function() {
+  $('#body').bind('keyup', function () {
     isEdited = true;
     $('#output').html(markdown.toHTML($('#body').val()));
   });
 
 
   //reference
-  $("table#reference tr td:odd").each(function(index, element) {
+  $("table#reference tr td:odd").each(function (index, element) {
     var self = $(element);
     if (self.html() === "") {
       self.html(markdown.toHTML(self.siblings().html()));
     }
   });
 
-  $("textarea").keyup(function(e) {
-    while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
-        $(this).height($(this).height()+1);
+  $("textarea").keyup(function (e) {
+    while ($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+      $(this).height($(this).height() + 1);
     };
-});
-  
+  });
+
   //leave
-  $(window).bind('beforeunload', function() {
+  $(window).bind('beforeunload', function () {
     if (isEdited) {
       return 'Are you sure you want to leave? Your changes will be lost.';
     }
@@ -67,16 +67,30 @@ $(function() {
 
 
 
-window.addEventListener('load', function(evt) {
-    // Cache a reference to the status display SPAN
-    statusDisplay = document.getElementById('status-display');
-    // Handle the bookmark form submit event with our addBookmark function
-    document.getElementById('addRemark').addEventListener('submit', addRemark);
-    // Get the event page
-    chrome.runtime.getBackgroundPage(function(eventPage) {
-        // Call the getPageInfo function in the event page, passing in 
-        // our onPageDetailsReceived function as the callback. This injects 
-        // content.js into the current tab's HTML
-        eventPage.getPageDetails(onPageDetailsReceived);
-    });
+window.addEventListener('load', function (evt) {
+  // Cache a reference to the status display SPAN
+  statusDisplay = document.getElementById('status-display');
+  // Handle the bookmark form submit event with our addBookmark function
+  document.getElementById('addRemark').addEventListener('submit', addRemark);
+  // Get the event page
+
+
+  const realFileBtn = document.getElementById("real-file")
+  const customBtn = document.getElementById("custom-button")
+  const customTxt = document.getElementById("custom-text")
+
+  customBtn.addEventListener("click", function () {
+    realFileBtn.click();
+  });
+
+  realFileBtn.addEventListener("change", function () {
+    if (realFileBtn.value) {
+      customTxt.innerHTML = realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+    }
+    else {
+      customTxt.innerHTML = "No file chosen, yet."
+    }
+  })
+
 });
+

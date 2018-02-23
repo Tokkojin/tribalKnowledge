@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
         body {
@@ -9,15 +10,22 @@
             font-family: Arial, sans-serif;
             font-size: 12px;
         }
-        input, textarea {
+
+        input,
+        textarea {
             width: 420px;
         }
+
         input#save {
-            font-weight: bold; width: auto;
+            font-weight: bold;
+            width: auto;
         }
+
         input#clear {
-            font-weight: bold; width: auto;
+            font-weight: bold;
+            width: auto;
         }
+
         #preview {
             border-width: thin;
             background-color: #dadada;
@@ -27,15 +35,19 @@
     <script src="../js/main.js"></script>
     <script src="../js/markdown.js"></script>
 </head>
+
 <body>
     <form id="addRemark">
         <p>
-            <label for="highlight">Highlighted Text</label><br />
-            <div id = "highlight" name = "highlight" size = "45" value = ""/>
+            <label for="highlight">Highlighted Text</label>
+            <br />
+            <div id="highlight" name="highlight" size="45" value="" />
             <input type="text" id="highlight" name="highlight" size="45" value="" />
         </p>
         <p>
-            <label for="body">*Body</label><br /><br />
+            <label for="body">*Body</label>
+            <br />
+            <br />
             <textarea id="body" name="body" rows="6" cols="35">
             </textarea>
         </p>
@@ -44,13 +56,17 @@
         </p>
         <br />
         <div id="preview" class="mode" style="border:1px solid black;">
-          <div id="output" class="content markdown-body"></div>
+            <div id="output" class="content markdown-body"></div>
         </div>
+        <input type="file" id="real-file" hidden="hidden" />
+        <button type="button" id="custom-button">CHOOSE A FILE</button>
+        <span id="custom-text">No file chosen, yet.</span>
         <p>
             <input id="save" type="submit" value="Save Remark" />
             <span id="status-display"></span>
         </p>
-        *Required 
+        *Required
     </form>
 </body>
+
 </html>

@@ -1,72 +1,56 @@
 <html>
-    <head>
-        <!-- load stylesheets: Bootstrap v2.3.0 - http://twitter.github.com/bootstrap/index.html -->
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"></link>
 
-        <!-- load javascript: jQuery 1.9.1 - http://jquery.com/ -->
-        <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<head>
+  <!-- load stylesheets: Bootstrap v2.3.0 - http://twitter.github.com/bootstrap/index.html -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"></link>
 
-        <!-- load javascript: Bootstrap v2.3.0 - http://twitter.github.com/bootstrap/ -->
-        <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <!-- load javascript: jQuery 1.9.1 - http://jquery.com/ -->
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
 
-        <!-- load stylesheets: internal -->
-        <link rel="stylesheet" type="text/css" href="../css/global.css"></link>
-        <link rel="stylesheet" type="text/css" href="../css/main.css"></link>
-        <title>Style File upload</title>
-        <style>
-          #custom-button{
-            padding: 10px;
-            color: white;
-            background-color: #009578;
-            border: 1px solid #000;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+  <!-- load javascript: Bootstrap v2.3.0 - http://twitter.github.com/bootstrap/ -->
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 
-        #custom-button:hover{
-          background-color: #00b28f;
-        }
+  <!-- load stylesheets: internal -->
+  <link rel="stylesheet" type="text/css" href="../css/global.css"></link>
+  <link rel="stylesheet" type="text/css" href="../css/main.css"></link>
+  <title>Style File upload</title>
+  <style>
+    #custom-button {
+      padding: 10px;
+      color: white;
+      background-color: #009578;
+      border: 1px solid #000;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        #custom-text{
-          margin-left: 10px;
-          font-family: sans-serif;
-          color: #aaa;
-        }
+    #custom-button:hover {
+      background-color: #00b28f;
+    }
 
-        </style>
-    </head>
-    <body>
-        <input type="file" id="real-file" hidden="hidden" />
-        <button type="button" id="custom-button">CHOOSE A FILE</button>
-        <span id="custom-text">No file chosen, yet.</span>
-        <div id="main-outer">
-            <div id="main-inner">
-                <div id="main-title">Chrome Extension Template v1.0</div>
-                <img id="main-image" src="../images/tsheets_logo.png" />
-                <div id="main-about-text">A sample project for kickstarting your next Chrome browser extension.</div>
-            </div>
-        </div>
+    #custom-text {
+      margin-left: 10px;
+      font-family: sans-serif;
+      color: #aaa;
+    }
+  </style>
+</head>
 
-        <!-- load javascript: unique html page javascript file -->
-        <script type="text/javascript" src="../js/main.js"></script>
+<body>
+  <input type="file" id="real-file" hidden="hidden" />
+  <button type="button" id="custom-button">CHOOSE A FILE</button>
+  <span id="custom-text">No file chosen, yet.</span>
+  <div id="main-outer">
+    <div id="main-inner">
+      <div id="main-title">Chrome Extension Template v1.0</div>
+      <img id="main-image" src="../images/tsheets_logo.png" />
+      <div id="main-about-text">A sample project for kickstarting your next Chrome browser extension.</div>
+    </div>
+  </div>
 
-        <script type="text/javascript">
-          const realFileBtn = document.getElementById("real-file")
-          const customBtn = document.getElementById("custom-button")
-          const customTxt = document.getElementById("custom-text")
+  <!-- load javascript: unique html page javascript file -->
+  <script type="text/javascript" src="../js/main.js"></script>
 
-          customBtn.addEventListener("click",function(){
-            realFileBtn.click();
-          });
+</body>
 
-          realFileBtn.addEventListener("change", function(){
-            if(realFileBtn.value){
-              customTxt.innerHTML = realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
-            }
-            else{
-              customTxt.innerHTML = "No file chosen, yet."
-            }
-          })
-        </script>
-    </body>
 </html>
