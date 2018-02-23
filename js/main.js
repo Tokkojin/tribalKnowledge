@@ -100,6 +100,8 @@ window.addEventListener('load', function (evt) {
 
     $.ajax(settings).done(function (response) {
       console.log(response);
+      // TODO: make this comment style work for different code languages
+      document.getElementById("comment-link").value = '//TK:' + response.id
     });
   })
 
