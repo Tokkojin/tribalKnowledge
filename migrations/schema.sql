@@ -39,9 +39,7 @@ SET default_with_oids = false;
 
 CREATE TABLE comments (
     id uuid NOT NULL,
-    target text NOT NULL,
     comment text NOT NULL,
-    url character varying(255) NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
