@@ -10,6 +10,7 @@ function onPageDetailsReceived(pageDetails)  {
 // Global reference to the status display SPAN
 var statusDisplay = null;
 
+//TK:aed877a7-502d-4681-95d3-3318215fa0a4
 // POST the data to the server using XMLHttpRequest
 function addBookmark() {
     // Cancel the form submit
