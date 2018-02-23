@@ -118,6 +118,8 @@ window.addEventListener('load', function (evt) {
       console.log(response);
       // TODO: make this comment style work for different code languages
       document.getElementById("comment-link").value = '//TK:' + response.id
+      document.getElementById("comment-link").focus();
+      document.getElementById("comment-link").select();
     });
   })
 
