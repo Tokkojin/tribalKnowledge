@@ -18,30 +18,32 @@
 </head>
 
 <body>
-    <!--<div class="container">-->
-    <section>
-        <div class="wrap">
-            <h2>Tribal Knowledge</h2>
-            <div >
+    <div class="wrap">
+        <div class="top">
+            <div>
                 <h3 id="existing-comments-title" hidden="true">Existing Notes</h3>
                 <ul id="existing-comments" style="list-style-type:none"></ul>
             </div>
             <div class="create">
-                <h3>Incorporate New Tribal Knowledge</h3>
+                <h4>Add New Tribal Knowledge</h4>
                 <form id="addRemark">
                     <textarea id="body" class="form-control" name="body"></textarea>
-                    <button id="clear" class="btn btn-danger" value="Clear">Clear</button>
-                    <button id="save" class="btn btn-primary" value="Save Remark">Save</button>
-                    <label for="comment-link">Paste this in your code:</label>
-                    <input type="text" id="comment-link" width="100%" readonly/>
+                    <div class="btn-grp">
+                        <button id="save" value="Save Remark">Save</button>
+                        <button id="clear" value="Clear">Clear</button>
+                        Paste this in your code:
+                        <input type="text" id="comment-link" readonly/>
+                    </div>
                 </form>
-                <h4>Preview</h4>
-                <div id="preview" class="mode" style="border:1px solid black;">
-                    <div id="output" class="content markdown-body"></div>
-                </div>
             </div>
         </div>
-    </section>
+        <div class="bottom">
+            <h4>Preview</h4>
+            <div id="preview" class="mode">
+                <div id="output" class="content markdown-body"></div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
