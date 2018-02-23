@@ -32,8 +32,6 @@
  *
  *  [JsonML]: http://jsonml.org/ "JSON Markup Language"
  **/
-  //TK:462d043f-a49a-460c-b69f-d6047b34339a
-  //TK:6b677f40-74a9-4a12-a1c5-4a5a13a3dad5
 var Markdown = expose.Markdown = function Markdown(dialect) {
   switch (typeof dialect) {
     case "undefined":
